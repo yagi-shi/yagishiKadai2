@@ -8,21 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    コンポーネント定義
+    // コンポーネント定義
     @IBOutlet weak var value1: UITextField!
     @IBOutlet weak var value2: UITextField!
     @IBOutlet weak var result: UILabel!
-    
-//    計算方法
+
+    // 計算方法
     @IBOutlet weak var calculateWay: UISegmentedControl!
-    
-//    計算実行
+
+    // 計算実行
     @IBAction func calculate(_ sender: Any) {
-//        String?->Int?->Intへ変換
+        // String?->Int?->Intへ変換
         let num1 = Double(value1.text ?? "") ?? 0
         let num2 = Double(value2.text ?? "") ?? 0
-        
-        switch calculateWay.selectedSegmentIndex{
+
+        switch calculateWay.selectedSegmentIndex {
         case 0:
             result.text = String(num1 + num2)
         case 1:
@@ -30,14 +30,13 @@ class ViewController: UIViewController {
         case 2:
             result.text = String(num1 * num2)
         case 3:
-            if num2 == 0{
+            if num2 == 0 {
                 result.text = "0では割ることはできません！"
-            }else{
+            } else {
                 result.text = String(num1 / num2)
             }
-        default: 
+        default:
             break
         }
     }
 }
-
